@@ -385,6 +385,18 @@ bool tud_audio_rx_done_post_read_cb(uint8_t rhport, uint16_t n_bytes_received, u
   return true;
 }
 #endif
+
+#if CFG_TUD_QUIRK_HOST_OS_HINT
+bool tud_audio_feedback_format_correction_cb(uint8_t func_id)
+{
+  (void)func_id;
+  if(tud_speed_get() == TUSB_SPEED_FULL && tud_quirk_host_os_hint() == TUD_QUIRK_OS_HINT_OSX) {
+    return true;
+  } else {
+    return false;
+  }
+}
+#endif
 //--------------------------------------------------------------------+
 // AUDIO Task
 //--------------------------------------------------------------------+
