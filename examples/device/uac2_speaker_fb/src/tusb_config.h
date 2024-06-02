@@ -153,6 +153,12 @@ extern "C" {
 // Size of control request buffer
 #define CFG_TUD_AUDIO_FUNC_1_CTRL_BUF_SZ	                         64
 
+//--------------------------------------------------------------------
+// QUIRKS
+//--------------------------------------------------------------------
+
+#define  CFG_TUD_QUIRK_HOST_OS_HINT   1
+
 #ifdef __cplusplus
 }
 #endif
